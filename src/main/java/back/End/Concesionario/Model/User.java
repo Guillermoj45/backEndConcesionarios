@@ -10,20 +10,20 @@ import lombok.Setter;
 @Setter
 public class User {
     @Id
-    @Column(name= "id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(name = "name", length = 30)
     String name;
 
-    @Column(name="email", length = 255, unique = true)
+    @Column(name = "email", length = 255, unique = true)
     String email;
 
-    @Column(name="password", length = 50)
+    @Column(name = "password", length = 50)
     String password;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name="rol")
+    @Column(name = "rol")
     Rol rol;
 }

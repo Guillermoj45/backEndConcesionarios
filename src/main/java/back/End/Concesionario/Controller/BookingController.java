@@ -4,7 +4,6 @@ import back.End.Concesionario.DTO.BookingAddDTO;
 import back.End.Concesionario.Model.Booking;
 import back.End.Concesionario.Service.BookingService;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

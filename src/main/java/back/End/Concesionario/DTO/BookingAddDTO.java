@@ -11,8 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BookingAddDTO {
     private Long id;
-    private String date;
-    private String time;
+    private String dateBooking;
+    private String dateDelivery;
     private Long userId;
     private Long vehicleId;
 

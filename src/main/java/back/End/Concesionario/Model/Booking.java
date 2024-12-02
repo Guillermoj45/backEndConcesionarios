@@ -22,10 +22,10 @@ public class Booking {
     @Column(name = "id")
     Long id;
 
-    @Column(name="date_booking")
+    @Column(name = "date_booking")
     LocalDate dateBooking;
 
-    @Column(name="date_delivery")
+    @Column(name = "date_delivery")
     LocalDate dateDelivery;
 
     @ManyToOne
@@ -36,8 +36,8 @@ public class Booking {
     @JoinColumn(name = "car_id")
     Vehicle vehicle;
 
-    public Booking(BookingAddDTO bookingAddDTO){
-        this.dateBooking = LocalDate.parse(bookingAddDTO.getDate());
-        this.dateDelivery = LocalDate.parse(bookingAddDTO.getDate());
+    public Booking(BookingAddDTO bookingAddDTO) {
+        this.dateBooking = LocalDate.parse(bookingAddDTO.getDateBooking());
+        this.dateDelivery = LocalDate.parse(bookingAddDTO.getDateDelivery());
     }
 }

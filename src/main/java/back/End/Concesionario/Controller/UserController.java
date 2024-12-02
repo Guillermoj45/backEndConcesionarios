@@ -3,7 +3,6 @@ package back.End.Concesionario.Controller;
 import back.End.Concesionario.Model.User;
 import back.End.Concesionario.Service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

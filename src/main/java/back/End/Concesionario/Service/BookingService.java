@@ -42,4 +42,7 @@ public class BookingService {
         bookingRepository.deleteById(id);
     }
 
+    public Booking updateBooking(Booking booking) {
+        return bookingRepository.save(booking);
+    }
 }

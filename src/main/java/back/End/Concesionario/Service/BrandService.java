@@ -3,7 +3,6 @@ package back.End.Concesionario.Service;
 import back.End.Concesionario.Model.Brand;
 import back.End.Concesionario.Repository.BrandRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,4 +29,7 @@ public class BrandService {
         brandRepository.deleteById(id);
     }
 
+    public Brand updateBrand(Brand brand) {
+        return brandRepository.save(brand);
+    }
 }

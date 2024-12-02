@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @AllArgsConstructor
-@RestController("vehicle")
+@RestController("api/vehicle")
 public class VehicleController {
 
     private final VehicleService vehicleService;

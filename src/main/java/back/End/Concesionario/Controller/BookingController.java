@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("booking")
+@RequestMapping("api/booking")
 @AllArgsConstructor
 public class BookingController {
     private final BookingService bookingService;

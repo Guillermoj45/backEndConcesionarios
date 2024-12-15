@@ -58,6 +58,7 @@ public class UserService {
             .build();
 
         user.setEmail(registerRequest.getEmail());
+        user.setRol(registerRequest.getRol());
         userRepository.save(user);
 
         return jwtService.generateToken(user);
@@ -78,5 +79,9 @@ public class UserService {
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public User findByUsername(String name) {
+       return userRepository.findTopByUsername(name).orElse(null);
     }
 }

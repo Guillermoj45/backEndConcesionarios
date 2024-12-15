@@ -2,6 +2,7 @@ package back.End.Concesionario.Controller;
 
 import back.End.Concesionario.DTO.LoginDTO;
 import back.End.Concesionario.DTO.RegisterDTO;
+import back.End.Concesionario.DTO.UserNameAndAdminDTO;
 import back.End.Concesionario.Model.User;
 import back.End.Concesionario.Service.UserService;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ public class UserController {
 
     private final UserService userService;
 
+
     @GetMapping("/username/{username}")
     public User getUserByUsername(@PathVariable String username) {
         return userService.getUserByUsername(username);
@@ -24,6 +26,11 @@ public class UserController {
     @PostMapping("/login")
     public String login(@RequestBody LoginDTO loginDTO) {
         return userService.login(loginDTO);
+    }
+
+    @GetMapping("this")
+    public UserNameAndAdminDTO getThisUser() {
+        return userService.getThisUser();
     }
 
     @GetMapping

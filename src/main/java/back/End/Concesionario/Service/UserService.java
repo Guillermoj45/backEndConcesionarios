@@ -2,6 +2,7 @@ package back.End.Concesionario.Service;
 
 import back.End.Concesionario.DTO.LoginDTO;
 import back.End.Concesionario.DTO.RegisterDTO;
+import back.End.Concesionario.DTO.UserNameAndAdminDTO;
 import back.End.Concesionario.Model.Enum.Rol;
 import back.End.Concesionario.Model.User;
 import back.End.Concesionario.Repository.UserRepository;
@@ -21,10 +22,18 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final User authenticatedUser;
 
     public User getUserByUsername(String username) {
         return userRepository.findAllByUsername(username)
                 .orElseThrow(() -> new IllegalStateException("User with username " + username + " does not exist"));
+    }
+
+    public UserNameAndAdminDTO getThisUser() {
+        UserNameAndAdminDTO userNameDTO = new UserNameAndAdminDTO();
+        userNameDTO.setUsername(authenticatedUser.getUsername());
+        userNameDTO.setRol(authenticatedUser.getRol());
+        return userNameDTO;
     }
 
     public List<User> getUsers() {
@@ -48,6 +57,7 @@ public class UserService {
             .rol(Rol.client)
             .build();
 
+        user.setEmail(registerRequest.getEmail());
         userRepository.save(user);
 
         return jwtService.generateToken(user);

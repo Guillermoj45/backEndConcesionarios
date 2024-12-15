@@ -25,6 +25,9 @@ public class Vehicle {
     @Column(name = "price")
     Double price;
 
+    @Column(name = "image")
+    String image;
+
     @ManyToOne
     @JoinColumn(name = "brand_id")
     Brand brand;

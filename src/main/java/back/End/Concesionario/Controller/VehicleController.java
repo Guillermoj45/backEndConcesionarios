@@ -1,5 +1,6 @@
 package back.End.Concesionario.Controller;
 
+import back.End.Concesionario.DTO.ReturnVehicleDTO;
 import back.End.Concesionario.Model.Vehicle;
 import back.End.Concesionario.Service.VehicleService;
 import lombok.AllArgsConstructor;
@@ -8,13 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @AllArgsConstructor
-@RestController("api/vehicle")
+@RestController()
+@RequestMapping("api/vehicle")
 public class VehicleController {
 
     private final VehicleService vehicleService;
 
     @GetMapping
-    public List<Vehicle> getVehicle() {
+    public List<ReturnVehicleDTO> getVehicle() {
         return vehicleService.getVehicles();
     }
 

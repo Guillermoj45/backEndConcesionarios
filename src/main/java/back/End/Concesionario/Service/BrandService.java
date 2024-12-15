@@ -32,4 +32,9 @@ public class BrandService {
     public Brand updateBrand(Brand brand) {
         return brandRepository.save(brand);
     }
+
+    public Brand getBrandByName(String brand) {
+        return brandRepository.findBrandByName(brand)
+                .orElseThrow(() -> new IllegalStateException("Brand with name " + brand + " does not exist"));
+    }
 }

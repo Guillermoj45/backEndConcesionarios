@@ -1,6 +1,7 @@
 package back.End.Concesionario.Controller;
 
 import back.End.Concesionario.DTO.BookingAddDTO;
+import back.End.Concesionario.DTO.ReturnBookingDTO;
 import back.End.Concesionario.Model.Booking;
 import back.End.Concesionario.Service.BookingService;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ public class BookingController {
     private final BookingService bookingService;
 
     @GetMapping
-    public List<Booking> getBookings() {
+    public List<ReturnBookingDTO> getBookings() {
         return bookingService.getBookings();
     }
 

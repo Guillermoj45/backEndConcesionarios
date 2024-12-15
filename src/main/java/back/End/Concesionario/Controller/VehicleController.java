@@ -20,9 +20,24 @@ public class VehicleController {
         return vehicleService.getVehicles();
     }
 
+    @GetMapping("brand/{brand}")
+    public List<ReturnVehicleDTO> getVehicleByBrand(@PathVariable Long brand) {
+        return vehicleService.getVehiclesByBrand(brand);
+    }
+
+    @GetMapping("model/{model}")
+    public List<ReturnVehicleDTO> getVehicleByModel(@PathVariable String model) {
+        return vehicleService.getVehiclesByModel(model);
+    }
+
+    @GetMapping("model/{modelName}/brand/{numberBrand}")
+    public List<ReturnVehicleDTO> getVehicleByModelAndBrand(@PathVariable String modelName, @PathVariable Long numberBrand) {
+        return vehicleService.getVehiclesByModelAndBrand(modelName, numberBrand);
+    }
+
     @GetMapping("{id}")
-    public Vehicle getVehicleById(@PathVariable Long id) {
-        return vehicleService.getVehicleById(id);
+    public ReturnVehicleDTO getVehicleById(@PathVariable Long id) {
+        return vehicleService.getVehicleByIdReturn(id);
     }
 
     @PostMapping
@@ -31,7 +46,7 @@ public class VehicleController {
     }
 
     @PutMapping
-    public Vehicle updateVehicle(@PathVariable Vehicle vehicle) {
+    public ReturnVehicleDTO updateVehicle(@RequestBody ReturnVehicleDTO vehicle) {
         return vehicleService.updateVehicle(vehicle);
     }
 

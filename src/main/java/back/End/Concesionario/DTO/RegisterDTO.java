@@ -1,13 +1,15 @@
 package back.End.Concesionario.DTO;
 
-import back.End.Concesionario.Model.Enum.Rol;
-import lombok.Data;
-import lombok.Getter;
+// Importación de enumeración y librerías necesarias
+import back.End.Concesionario.Model.Enum.Rol; // Importa la enumeración Rol que define los roles de usuario
+import lombok.Data; // Genera automáticamente getters, setters, equals, hashCode y toString
 
-@Data
+// Anotación Lombok para reducir código repetitivo
+@Data // Genera automáticamente getters, setters, equals, hashCode y toString para todos los atributos
 public class RegisterDTO {
-    private String username;
-    private String password;
-    private String email;
-    private Rol rol;
+    // Atributos del DTO (Data Transfer Object) utilizados para registrar un nuevo usuario
+    private String username; // Nombre de usuario elegido para el registro
+    private String password; // Contraseña del usuario
+    private String email; // Dirección de correo electrónico del usuario
+    private Rol rol; // Rol del usuario (admin, cliente, etc.) definido mediante la enumeración Rol
 }

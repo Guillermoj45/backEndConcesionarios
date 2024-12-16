@@ -3,7 +3,9 @@ package back.End.Concesionario.Default;
 import back.End.Concesionario.DTO.RegisterDTO;
 import back.End.Concesionario.Model.Brand;
 import back.End.Concesionario.Model.Enum.Rol;
+import back.End.Concesionario.Model.Enum.Status;
 import back.End.Concesionario.Model.Vehicle;
+import back.End.Concesionario.Service.BrandService;
 import back.End.Concesionario.Service.UserService;
 import back.End.Concesionario.Service.VehicleService;
 import lombok.AllArgsConstructor;
@@ -20,6 +22,7 @@ import java.util.Locale;
 public class DatosPorDefefcto {
     private final UserService userService;
     private final VehicleService vehicleService;
+    private final BrandService brandService;
 
 
     private PasswordEncoder passwordEncoder;
@@ -42,13 +45,16 @@ public class DatosPorDefefcto {
                 userService.register(defaultUser);
             }
             if (vehicleService.getVehicles().isEmpty()){
-                Brand bramd = new Brand();
-                bramd.setName("Audi");
+                Brand brand = new Brand();
+                brand.setName("Audi");
+                brand = brandService.addBrand(brand);
+
                 Vehicle vehicle = new Vehicle();
                 vehicle.setModel("A3");
-                vehicle.setBrand(bramd);
+                vehicle.setBrand(brand);
                 vehicle.setYear(LocalDate.of(2015, 1, 1));
                 vehicle.setPrice(15000.0);
+                vehicle.setStatus(Status.NEW);
                 vehicle.setImage("https://cdn-datak.motork.net/configurator-imgs/cars/es/original/AUDI/A3-SPORTBACK/44243_HATCHBACK-5-DOORS/audi-a3-sportback-front-view.jpg");
 
                 vehicleService.addVehicle(vehicle);

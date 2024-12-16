@@ -42,6 +42,12 @@ public class VehicleService {
     }
 
     public Vehicle addVehicle(Vehicle vehicle) {
+        Brand brand = vehicle.getBrand();
+        if (brand.getId() == null) {
+            brand = brandService.addBrand(brand);
+            vehicle.setBrand(brand);
+        }
+
         return vehicleRepository.save(vehicle);
     }
 
@@ -98,5 +104,18 @@ public class VehicleService {
         }
 
         return returnVehicleDTOs;
+    }
+
+    public List<Vehicle> getVehiclesByName(String name) {
+
+        return vehicleRepository.findByModel(name);
+    }
+
+    public List<Vehicle> getVehiclesByBrand(String brand) {
+        return vehicleRepository.findByBrand(brand);
+    }
+
+    public List<Vehicle> getVehiclesByPriceRange(Double maxPrice) {
+        return vehicleRepository.findByPriceRange(maxPrice);
     }
 }
